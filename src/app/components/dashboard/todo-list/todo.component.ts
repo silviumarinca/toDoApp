@@ -7,23 +7,7 @@ import { ToDoModel } from 'src/app/Model/todo.model';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  tasks = [
-    {
-      id: 0,
-      name: 'Go To Event',
-      done: false,
-    },
-    {
-      id: 1,
-      name: 'Learn Something',
-      done: true,
-    },
-    {
-      id: 2,
-      name: 'Seek Help',
-      done: false,
-    },
-  ];
+ 
   @Input() toDoTasks: ToDoModel[];
   taskItem: ToDoModel = new ToDoModel(0,'',false,false);
   addOperationDisabled: boolean = false;

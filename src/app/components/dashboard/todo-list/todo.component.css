@@ -1,0 +1,44 @@
+.todo-homework{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;   
+  border:1px solid #bea8a0;
+  box-shadow: 0 0 10px 5px #bea8a0;
+  border-radius: 1rem;
+  max-width: 70%;
+
+}
+
+.todo-homework h3{
+  padding: 10px;
+}
+
+ .container{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-direction: column;
+ }
+
+ .todo-homework table{
+   margin:1rem;
+ }
+ 
+ 
+
+
+ .todo-homework table input[type="text"]{
+   padding: 0.2rem;
+   border: 1px solid #bea8a0;
+   outline: none;
+ }
+
+.btn{
+   padding: 5px 17px;
+   background: #F8F4F9;
+
+ }
+
+  
