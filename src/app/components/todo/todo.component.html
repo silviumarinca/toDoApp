@@ -1,0 +1,42 @@
+
+
+<ul style="background-color: aquamarine;">
+  <li *ngFor="let task of tasks">
+    <input (click)="toggleTaskStatus(task.id)" type="checkbox" [checked]="task.done" />
+    <del *ngIf="task.done">{{task.name}}</del>
+    <span *ngIf="!task.done">{{task.name}}</span>
+  </li>
+  
+</ul>
+
+
+ <h3>Homework todo App</h3>
+ <table>
+   <thead>
+     <tr>
+       <th style="text-align: left;">Name</th>
+       <th>Done</th>
+     </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td><input type="text"  [(ngModel)] = 'taskItem.name'  > 
+      </td>
+      <td> 
+        <input type="checkbox"  [(ngModel)]= "taskItem.done"  >
+      </td>
+      <td>
+        <input type="button" [hidden]="taskItem.selected"(click)="addTask(taskItem)" value="Add" />
+        <input type="button" [hidden]="!taskItem.selected"(click)="modifyTask(taskItem)" value="Modify" />
+        <input type="button"[hidden]="!taskItem.selected" (click)="removeTask(taskItem.id)" value="Delete" /> 
+        <input type="button"   (click)="unSetTaskItem()" value="Give Up" />
+      </td>
+     </tr>
+     <tr *ngFor="let task of toDoTasks">
+       <td><span>{{task.name}}</span></td>
+       <td><input type="checkbox" [ngModel]="task.done" [checked]="task.done" [attr.disabled]="''" /></td>
+       <td>  <input type="button" [hidden]="task.selected" (click)="selectieTask(task.id)" value="Select record" /></td>
+     </tr>
+  
+   </tbody>
+ </table>
