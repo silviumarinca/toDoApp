@@ -20,14 +20,14 @@ export class TodoComponent implements OnInit {
 
  
 
-  toggleTaskStatus = (id: number) => {
+  toggleTaskStatus = (id: number) :void=> {
     const affectedTask = this.toDoTasks.find((c) => c.id === id);
     if (affectedTask) {
       affectedTask.done = !affectedTask.done;
     }
   };
   
-  selectieTask(id: number){
+  selectieTask(id: number):void{
     const affectedTask = this.toDoTasks.find((c) => c.id === id);
     if(affectedTask){
      this.taskItem= {...affectedTask};
@@ -35,23 +35,23 @@ export class TodoComponent implements OnInit {
     }
     
   }
-  unSetTaskItem(){
+  unSetTaskItem():void{
       this.taskItem=new ToDoModel(0,'',false,false);
   }
-  addTask(toDo: ToDoModel) { 
+  addTask(toDo: ToDoModel):void { 
     toDo.id= this.toDoTasks.length+1;
 
     this.toDoTasks.push({...toDo});
     console.log(this.toDoTasks);
     this.unSetTaskItem();
   }
-  modifyTask(task: ToDoModel) {
+  modifyTask(task: ToDoModel):void {
     const taskIndex: number = this.GetTaskIndex(task.id);
     task.selected=false;
     if (taskIndex > -1) this.toDoTasks.splice(taskIndex, 1, {...task});
     this.unSetTaskItem();
   }
-  removeTask(taskId: number) {
+  removeTask(taskId: number):void {
     const taskIndex: number = this.GetTaskIndex(taskId);
     if (taskIndex > -1) this.toDoTasks.splice(taskIndex, 1);
     this.unSetTaskItem();
