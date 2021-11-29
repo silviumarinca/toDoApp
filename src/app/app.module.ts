@@ -7,18 +7,29 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card'; 
+import {HttpClientModule} from '@angular/common/http';
+import { CoinComponent } from './components/coin/coin.component'
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     HeaderComponent,
     DashboardComponent,
-    FooterComponent, 
+    FooterComponent,
+    FavoriteComponent,
+    FavoritesComponent,
+    CoinComponent, 
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

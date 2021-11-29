@@ -51,7 +51,7 @@ export class TodoComponent implements OnInit {
     if (taskIndex > -1) this.toDoTasks.splice(taskIndex, 1, {...task});
     this.unSetTaskItem();
   }
-  removeTask(taskId: number):void {
+  removeTask(taskId: number) {
     const taskIndex: number = this.GetTaskIndex(taskId);
     if (taskIndex > -1) this.toDoTasks.splice(taskIndex, 1);
     this.unSetTaskItem();

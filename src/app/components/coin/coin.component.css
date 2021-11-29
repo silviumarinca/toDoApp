@@ -1,0 +1,28 @@
+:host { 
+  display: block;
+  margin:1rem;
+  min-width: 20rem;
+}
+.coin-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.coin-logo {
+  max-width: 3rem;
+}
+
+.coin-description {
+  text-align: center;
+}
+
+.coin-description ul {
+  list-style-type: none;
+}
+.coin-description ul li {
+  padding: 0.1rem;
+}
+
+.card-title {
+  text-align: center;
+}

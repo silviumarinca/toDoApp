@@ -1,0 +1,11 @@
+:host{
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  display: block;
+  background: #3f51b5;
+  height:2rem;
+  width:100%;
+  text-align: center;
+
+}
