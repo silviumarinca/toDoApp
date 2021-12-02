@@ -1,3 +1,5 @@
+import { ShareDataService } from './../../services/share-data.service';
+import { CoinInfo } from './../../models/CoinInfo';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -6,21 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  @Input() coins: any;
+  @Input() coins: CoinInfo[] = [];
 
-  favorites: Array<any> = [];
+  favorites: CoinInfo[] = [];
 
-  favoriteIds = [
+  favoriteIds: string[] = [
     "bitcoin", "solana", "chainlink"
   ];
 
-  myCoins: any = {
+  myCoins: { [key: string]: number } = {
     "bitcoin": 2,
     "solana": 3,
     "chainlink": 5
   }
 
-  constructor() { }
+  constructor(private sharedData: ShareDataService) { }
 
   ngOnInit(): void {
   }
@@ -31,12 +33,11 @@ export class FavoritesComponent implements OnInit {
   }
 
   setFavorites() {
-    this.favorites = this.coins.filter(
-      (coin: any) =>
-        this.favoriteIds.includes(coin.id)
-    );
-    this.favorites.forEach((favorite) => {
-      favorite.my_currency = this.myCoins[favorite.id] * favorite.current_price;
+    this.sharedData.getCoin().subscribe( coinId => {
+      this.favorites = this.coins.filter((coin: CoinInfo) => coin.id === coinId);
+      this.favorites.forEach((favorite) => {
+        favorite.my_currency = this.myCoins[favorite.id] * favorite.current_price;
+      })
     })
   }
 }
