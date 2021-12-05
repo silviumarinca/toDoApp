@@ -5,7 +5,13 @@
     <ng-container matColumnDef="info">
       <th mat-header-cell *matHeaderCellDef> Info </th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon class="info-icon" aria-hidden="false" aria-label="Example home icon">info</mat-icon>
+        <button [matMenuTriggerFor]="info">
+        <mat-icon  class="info-icon" aria-hidden="false" aria-label="Example home icon">info</mat-icon>
+       </button>
+        <mat-menu #info="matMenu" class="coin-details">
+          <p mat-menu-item>HIGH Last 24h:<strong>{{element.high_24h}}</strong></p>
+          <p mat-menu-item>Market Cap Change 24h<strong>{{element.market_cap_change_24h}}</strong></p>
+        </mat-menu>
       </td>
     </ng-container>
 
@@ -46,6 +52,15 @@
       <td mat-cell *matCellDef="let element">
         <mat-icon class="favorite-icon" (click)="setFavorite(element)">
           {{ favoritesSet.has(element.id) ? 'star': 'star_outline' }}
+        </mat-icon>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="graphics">
+      <th mat-header-cell *matHeaderCellDef> Graphic </th>
+      <td mat-cell *matCellDef="let element" (click)="viewGraphicItem(element)">
+        <mat-icon> 
+          {{ graphicItem == element.id ? 'help': 'help_outline' }}
+          
         </mat-icon>
       </td>
     </ng-container>

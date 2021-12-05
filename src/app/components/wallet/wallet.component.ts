@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoinOperations } from 'src/app/models/CoinOperation';
 import { ShareDataService } from 'src/app/services/share-data.service';
 
 @Component({
@@ -13,8 +14,12 @@ export class WalletComponent implements OnInit {
   constructor(private sharedData: ShareDataService) { }
 
   ngOnInit(): void {
-    this.sharedData.getCoin().subscribe(coinId => {
-      this.coinId = coinId;
+    this.sharedData.getCoin().subscribe(coin => {
+      if(coin.operation == CoinOperations.Delete)
+      {
+          this.coinId="";
+      }else
+        this.coinId = coin.elementId;
     })
   }
 
